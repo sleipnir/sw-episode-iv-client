@@ -2,10 +2,13 @@ extern crate actix;
 extern crate tokio_codec;
 extern crate tokio_io;
 
+use std::io::Error;
+
 use actix::prelude::*;
 use actix::actors::resolver::{Connect, Resolver};
-use tokio_codec::{FramedRead, LinesCodec};
+
 use tokio_io::AsyncRead;
+use tokio_codec::{FramedRead, LinesCodec};
 
 use crate::common::ReceivedLine;
 
@@ -42,7 +45,7 @@ impl Actor for TcpClientActor {
     }
 }
 
-impl StreamHandler<String, std::io::Error> for TcpClientActor {
+impl StreamHandler<String, Error> for TcpClientActor {
     fn handle(&mut self, line: String, _ctx: &mut Self::Context) {
         if let Err(error) = self.recipient.do_send(ReceivedLine { line }) {
             println!("do_send failed: {}", error);

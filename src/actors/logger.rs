@@ -1,5 +1,6 @@
 
 use actix::prelude::*;
+
 use crate::common::ReceivedLine;
 
 pub struct ConsoleLogger;

@@ -8,7 +8,7 @@ use sw_episode_iv::actors::client::TcpClientActor;
 use sw_episode_iv::actors::logger::ConsoleLogger;
 
 fn main() {
-     let sys = actix::System::new("sw-episode-iv-sys");
+    let sys = actix::System::new("sw-episode-iv-sys");
 
     let _logger = Arbiter::start(|_| ConsoleLogger);
 
