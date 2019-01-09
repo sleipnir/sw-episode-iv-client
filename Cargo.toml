@@ -1,7 +1,7 @@
 [package]
 name = "sw-episode-iv"
 version = "0.1.0"
-authors = ["adriano.pereira@tecsidel.com <admin@example.com>"]
+authors = ["Adriano Santos <sleipnir@bsd.com.br>"]
 edition = "2018"
 
 [dependencies]
